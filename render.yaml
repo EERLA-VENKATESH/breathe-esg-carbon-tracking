@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: breathe-esg
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn breathe_esg.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.13.2
