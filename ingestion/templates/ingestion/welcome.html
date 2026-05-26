@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathe ESG - Carbon Tracking System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 15px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-icon {
+            font-size: 40px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .credentials {
+            background: #2d3748;
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .credentials h3 {
+            color: #a0aec0;
+            margin-bottom: 15px;
+        }
+
+        .cred-box {
+            background: #1a202c;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            .stat-number { font-size: 36px; }
+            .card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌿</div>
+            <h1>Breathe ESG Carbon Tracking System</h1>
+            <p class="tagline">Enterprise Carbon Emissions Management Platform</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-number" id="recordCount">6</div>
+                <div class="stat-label">Normalized Records</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number" id="approvedCount">6</div>
+                <div class="stat-label">Approved Records</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🟢</div>
+                <div class="stat-number">3</div>
+                <div class="stat-label">Data Sources</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-number" id="totalEmissions">0.37</div>
+                <div class="stat-label">Total tCO2e</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>📡 API Root</h3>
+                <p>Explore all available REST API endpoints. Access raw data, normalized records, review statuses, and audit logs programmatically.</p>
+                <a href="/api/" class="btn">View API →</a>
+            </div>
+
+            <div class="card">
+                <h3>📋 Normalized Records</h3>
+                <p>View calculated emissions in tCO2e. All activity data normalized with appropriate emission factors.</p>
+                <a href="/api/normalized-records/" class="btn">View Records →</a>
+            </div>
+
+            <div class="card">
+                <h3>📊 Review Dashboard</h3>
+                <p>Monitor review workflow statistics. Track pending, approved, and flagged records in real-time.</p>
+                <a href="/api/dashboard/1/" class="btn">View Dashboard →</a>
+            </div>
+
+            <div class="card">
+                <h3>🔧 Admin Panel</h3>
+                <p>Full administrative interface. Manage organizations, data sources, and review emissions data.</p>
+                <a href="/admin/" class="btn">Access Admin →</a>
+            </div>
+        </div>
+
+        <div class="credentials">
+            <h3>🔐 Demo Access</h3>
+            <div class="cred-box">
+                Username: <strong>admin</strong> | Password: <strong>admin123</strong>
+            </div>
+            <p style="margin-top: 15px; font-size: 14px;">Use these credentials to access the admin panel and API endpoints</p>
+        </div>
+
+        <div class="footer">
+            <p>Breathe ESG Tech Intern Assignment | Built with Django & Django REST Framework</p>
+            <p style="margin-top: 10px;">© 2026 Carbon Emissions Tracking System</p>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Fetch real data from API
+        async function fetchStats() {
+            try {
+                const response = await fetch('/api/normalized-records/');
+                const records = await response.json();
+                document.getElementById('recordCount').textContent = records.length;
+                
+                let total = 0;
+                records.forEach(r => total += parseFloat(r.calculated_emissions));
+                document.getElementById('totalEmissions').textContent = total.toFixed(3);
+                
+                // Get approved count from dashboard
+                const dashResponse = await fetch('/api/dashboard/1/');
+                const dashboard = await dashResponse.json();
+                document.getElementById('approvedCount').textContent = dashboard.summary.approved;
+            } catch(e) {
+                console.log('Stats loading from static data');
+            }
+        }
+        fetchStats();
+    </script>
+</body>
+</html>
