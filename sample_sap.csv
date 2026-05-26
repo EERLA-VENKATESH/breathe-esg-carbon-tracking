@@ -1,0 +1,4 @@
+Buchungskreis,Werk,Materialnummer,Materialbezeichnung,Menge,ME,Datum,Belegnummer,Lieferant
+1000,1100,000000000000123001,Dieselkraftstoff,15000.50,L,15.01.2024,4500012345,Shell GmbH
+1000,1100,000000000000123001,Dieselkraftstoff,2500.75,L,31.01.2024,4500012346,Shell GmbH
+1000,1200,000000000000456002,Erdgas,50000.00,M3,01.02.2024,4500012347,GASAG Berlin
